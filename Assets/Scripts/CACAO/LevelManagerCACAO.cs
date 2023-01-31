@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelBoolean : MonoBehaviour
+public class LevelManagerCACAO : MonoBehaviour
 {
-    public static bool godsBool, deathBool, cacaoBool;
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void GoToMenu(){
+        LevelBoolean.cacaoBool = true;
+        SceneManager.LoadScene("SampleScene");
     }
 }

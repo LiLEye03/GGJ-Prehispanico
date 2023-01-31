@@ -9,7 +9,10 @@ public class GameManager : MonoBehaviour
 
     public static string gameStat;
     public static string miniGameStat;
+    //GameObjects miniGames
     [SerializeField] GameObject miniGamePanel, godsPanel, deathPanel, cacaoPanel, checkMarkGODS, checkMarkDEATH, checkMarkCACAO;
+    //GameObjects GameStats
+    [SerializeField] GameObject PausePanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //Estados de Juego
+        switch(gameStat){
+            case "PAUSE":
+            PausePanel.SetActive(true);
+            break;
+
+            case "STARTMENU":
+            LevelBoolean.godsBool = false;
+            LevelBoolean.deathBool = false;
+            LevelBoolean.cacaoBool = false;
+            break;
+        }
+        //Paneles de miniJuegos
         switch(miniGameStat){
 
             case "GODS":
@@ -78,6 +95,10 @@ public class GameManager : MonoBehaviour
 
     public void closePanels(){
         miniGameStat = "DEFAULT";
+    }
+
+    public void startGame(){
+        gameStat = "STARTMENU";
     }
 
 }
