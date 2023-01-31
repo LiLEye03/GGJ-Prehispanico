@@ -12,11 +12,16 @@ public class GameManager : MonoBehaviour
     //GameObjects miniGames
     [SerializeField] GameObject miniGamePanel, godsPanel, deathPanel, cacaoPanel, checkMarkGODS, checkMarkDEATH, checkMarkCACAO;
     //GameObjects GameStats
-    [SerializeField] GameObject PausePanel;
+    [SerializeField] GameObject PausePanel, MenuPanel;
     // Start is called before the first frame update
     void Start()
     {
         miniGameStat = "DEFAULT";
+        if (LevelBoolean.StartBool == true){
+            gameStat = "STATRTMENU";
+        } else {
+            gameStat = "STARTMENU";
+        }
     }
 
     // Update is called once per frame
@@ -29,10 +34,14 @@ public class GameManager : MonoBehaviour
             PausePanel.SetActive(true);
             break;
 
-            case "STARTMENU":
+            case "STARTGAME":
             LevelBoolean.godsBool = false;
             LevelBoolean.deathBool = false;
             LevelBoolean.cacaoBool = false;
+            break;
+
+            case "STARTMENU":
+            MenuPanel.SetActive(true);
             break;
         }
         //Paneles de miniJuegos
@@ -98,7 +107,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void startGame(){
-        gameStat = "STARTMENU";
+        gameStat = "STARTGAME";
     }
 
 }
