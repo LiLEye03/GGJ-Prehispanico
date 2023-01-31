@@ -27,10 +27,12 @@ public class PlayerMov : MonoBehaviour
         if (other.gameObject.CompareTag("GODS")){
             GameManager.miniGameStat = "GODS";
         }
-        else if (other.gameObject.CompareTag("DEATH")){
+        
+        if (other.gameObject.CompareTag("DEATH")){
             GameManager.miniGameStat = "DEATH";
         }
-        else {
+
+        if (other.gameObject.CompareTag("CACAO")){
             GameManager.miniGameStat = "CACAO";
         }
     }
