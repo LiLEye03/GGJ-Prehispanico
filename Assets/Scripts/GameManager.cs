@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
                 cacaoPanel.SetActive(true);
                 deathPanel.SetActive(false);
                 break;
-                
+
             case "DEATH":
                 miniGamePanel.SetActive(true);
                 godsPanel.SetActive(false);
