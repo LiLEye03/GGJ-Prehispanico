@@ -18,7 +18,7 @@ public class LevelManagerDEATH : MonoBehaviour
     }
 
     public void GoToMenu(){
-        LevelBoolean.deathBool = true;
+        SaveBoolean.deathBool = true;
         SceneManager.LoadScene("SampleScene");
     }
 }

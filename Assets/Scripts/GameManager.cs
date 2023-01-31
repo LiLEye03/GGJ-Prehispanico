@@ -12,38 +12,36 @@ public class GameManager : MonoBehaviour
     //GameObjects miniGames
     [SerializeField] GameObject miniGamePanel, godsPanel, deathPanel, cacaoPanel, checkMarkGODS, checkMarkDEATH, checkMarkCACAO;
     //GameObjects GameStats
-    [SerializeField] GameObject PausePanel, MenuPanel;
+    [SerializeField] GameObject PausePanel, MenuPanel, GamePanel;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
+
         miniGameStat = "DEFAULT";
-        if (LevelBoolean.StartBool == true){
-            gameStat = "STATRTMENU";
-        } else {
-            gameStat = "STARTMENU";
-        }
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
 
         //Estados de Juego
         switch(gameStat){
-            case "PAUSE":
+            case "PAUSEGAME":
             PausePanel.SetActive(true);
+            GamePanel.SetActive(false);
+            Time.timeScale = 0;
             break;
 
             case "STARTGAME":
-            LevelBoolean.godsBool = false;
-            LevelBoolean.deathBool = false;
-            LevelBoolean.cacaoBool = false;
+            SaveBoolean.godsBool = false;
+            SaveBoolean.deathBool = false;
+            SaveBoolean.cacaoBool = false;
             break;
 
-            case "STARTMENU":
-            MenuPanel.SetActive(true);
+            case "RESUMEGAME":
+            PausePanel.SetActive(false);
+            GamePanel.SetActive(true);
             break;
         }
+        
         //Paneles de miniJuegos
         switch(miniGameStat){
 
@@ -52,7 +50,7 @@ public class GameManager : MonoBehaviour
                 godsPanel.SetActive(true);
                 cacaoPanel.SetActive(false);
                 deathPanel.SetActive(false);
-                if (LevelBoolean.godsBool == true){
+                if (SaveBoolean.godsBool == true){
                     checkMarkGODS.SetActive(true);
                 } else { 
                     checkMarkGODS.SetActive(false);
@@ -64,7 +62,7 @@ public class GameManager : MonoBehaviour
                 godsPanel.SetActive(false);
                 cacaoPanel.SetActive(true);
                 deathPanel.SetActive(false);
-                if (LevelBoolean.cacaoBool == true){
+                if (SaveBoolean.cacaoBool == true){
                     checkMarkCACAO.SetActive(true);
                 } else {
                     checkMarkCACAO.SetActive(false);
@@ -76,7 +74,7 @@ public class GameManager : MonoBehaviour
                 godsPanel.SetActive(false);
                 cacaoPanel.SetActive(false);
                 deathPanel.SetActive(true);
-                if (LevelBoolean.deathBool == true){
+                if (SaveBoolean.deathBool == true){
                     checkMarkDEATH.SetActive(true);
                 } else {
                     checkMarkDEATH.SetActive(false);
@@ -90,6 +88,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+    //MiniJuegos
     public void godsScene(){
         SceneManager.LoadScene("GODS");
     }
@@ -101,13 +100,23 @@ public class GameManager : MonoBehaviour
     public void cacaoScene(){
         SceneManager.LoadScene("CACAO");
     }
-
     public void closePanels(){
         miniGameStat = "DEFAULT";
     }
 
-    public void startGame(){
-        gameStat = "STARTGAME";
+
+    //Estados de Juego
+
+    public void PauseGame(){
+        if (gameStat == "PAUSEGAME"){
+            gameStat = "RESUMEGAME";
+        } else {
+            gameStat = "PAUSEGAME";
+        }
+    }
+
+    public void GoToMenu(){
+        SceneManager.LoadScene("Menu");
     }
 
 }

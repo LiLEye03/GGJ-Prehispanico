@@ -18,7 +18,7 @@ public class LevelManagerCACAO : MonoBehaviour
     }
 
     public void GoToMenu(){
-        LevelBoolean.cacaoBool = true;
+        SaveBoolean.cacaoBool = true;
         SceneManager.LoadScene("SampleScene");
     }
 }

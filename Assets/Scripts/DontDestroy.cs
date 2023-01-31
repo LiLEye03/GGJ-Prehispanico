@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class LevelBoolean : MonoBehaviour
+public class DontDestroy : MonoBehaviour
 {
-    public static bool godsBool, deathBool, cacaoBool, StartBool;
     // Start is called before the first frame update
     void Start()
     {

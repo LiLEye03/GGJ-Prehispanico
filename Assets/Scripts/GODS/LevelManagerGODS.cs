@@ -18,7 +18,7 @@ public class LevelManagerGODS : MonoBehaviour
     }
 
     public void GoToMenu(){
-        LevelBoolean.godsBool = true;
+        SaveBoolean.godsBool = true;
         SceneManager.LoadScene("SampleScene");
     }
 }
