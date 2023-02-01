@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LvlCompleteChecker : MonoBehaviour
+public class Stats : MonoBehaviour
 {
-    public static LvlCompleteChecker Instance {get; private set;}
+    public static Stats Instance {get; private set;}
     void Awake()
     {
         if (Instance == null){

@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelManagerDEATH : MonoBehaviour
 {
+    PanelManager Panel;
     float timer;
     // Start is called before the first frame update
     void Start()
     {
         timer = 5;
-        GameManager.Instance.CallGameObjects();
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class LevelManagerDEATH : MonoBehaviour
         print(timer);
     }
     public void LvlCompleteDEATH(){
-        LvlCompleteChecker.CompleteGODS = true;
-        PanelManager.Instance.ReturnToMenuDEATH();
+        GameManager.Instance.CompleteLvlDEATH();
+        Panel.ReturnToPlazaDEATH();
     }
 }

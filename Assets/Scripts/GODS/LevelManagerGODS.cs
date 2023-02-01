@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelManagerGODS : MonoBehaviour
 {
+    PanelManager Panel;
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.CallGameObjects();
+
     }
 
     // Update is called once per frame
@@ -18,7 +19,7 @@ public class LevelManagerGODS : MonoBehaviour
     }
 
     public void LvlCompleteGODS(){
-        LvlCompleteChecker.CompleteGODS = true;
-        PanelManager.Instance.ReturnToMenuGODS();
+        GameManager.Instance.CompleteLvlGODS();
+        Panel.ReturnToPlazaGODS();
     }
 }

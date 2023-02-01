@@ -6,12 +6,11 @@ using UnityEngine;
 public class PlayerMov : MonoBehaviour
 {
     public float speed = 10.0f;
-
+    PanelManager Panel;
     private Rigidbody2D rb;
 
     void Start()
     {
-        GameManager.Instance.CallGameObjects();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -27,21 +26,21 @@ public class PlayerMov : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("GODS")){
-            PanelManager.Instance.OpenContentGODS();
+            Panel.OpenContentGODS();
         } else {
-            PanelManager.Instance.ClosePanel();
+            Panel.ClosePanel();
         }
         
         if (other.gameObject.CompareTag("DEATH")){
-            PanelManager.Instance.OpenContentDEATH();
+            Panel.OpenContentDEATH();
         } else {
-            PanelManager.Instance.ClosePanel();
+            Panel.ClosePanel();
         }
 
         if (other.gameObject.CompareTag("CACAO")){
-            PanelManager.Instance.OpenContentCACAO();
+            Panel.OpenContentCACAO();
         } else { 
-            PanelManager.Instance.ClosePanel();
+            Panel.ClosePanel();
         }
     }
 }

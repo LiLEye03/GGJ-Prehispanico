@@ -6,51 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PanelManager : MonoBehaviour
 {
-    public static string Scene;
-    [SerializeField] string EscenaActual;
     public static bool GameStarted, GamePaused;
 
-    [SerializeField] GameObject MenuPanel, PausePanel, MinigamePanel, LvlCompletePanel;
-    [SerializeField] GameObject ContentGODS, ContentDEATH, ContentCACAO;
-
-    public static PanelManager Instance {get; private set;}
-
-    void Awake()
-    {
-        if (Instance == null){
-            Instance = this;
-        } else {
-            Debug.Log("Más de un PanelManager en escena!");
-        }
-    }
-
-    void Start()
-    {
-        if (GameStarted == false){
-            SceneManager.LoadScene("PLAZA");
-            MenuPanel.SetActive(true);
-            PausePanel.SetActive(false);
-            MinigamePanel.SetActive(false);
-            LvlCompletePanel.SetActive(false);
-        } 
-    }
-
-    void Update()
-    {
-        switch(Scene){
-            case "PLAZA":
-            if (GameStarted == true){
-                MenuPanel.SetActive(false);
-            }
-            LvlCompletePanel.SetActive(false);
-            
-            break;
-        }
-
-        //Control de Escenas
-        EscenaActual = Scene;
-
-    }
+    [SerializeField] GameObject PausePanel, MinigamePanel, LvlCompletePanel, PanelPantallaCarga, SureExitPanel, CreditsPanel, MenuPanel;
+    [SerializeField] GameObject ContentGODS, ContentDEATH, ContentCACAO, CargaGODS, CargaDEATH, CargaCACAO;
 
     //GODS
     public void OpenContentGODS(){
@@ -62,10 +21,12 @@ public class PanelManager : MonoBehaviour
 
     public void OpenSceneGODS(){
         MinigamePanel.SetActive(false);
+        SceneManager.LoadScene("GODS");
     }
 
-    public void ReturnToMenuGODS(){
-        LvlCompleteChecker.CompleteGODS = true;
+    public void ReturnToPlazaGODS(){
+        Stats.CompleteGODS = true;
+        SceneManager.LoadScene("PLAZA");
     }
     //DEATH
     public void OpenContentDEATH(){
@@ -77,10 +38,12 @@ public class PanelManager : MonoBehaviour
 
     public void OpenSceneDEATH(){
         MinigamePanel.SetActive(false);
+        SceneManager.LoadScene("DEATH");
     }
 
-    public void ReturnToMenuDEATH(){
-        LvlCompleteChecker.CompleteDEATH = true;
+    public void ReturnToPlazaDEATH(){
+        Stats.CompleteDEATH = true;
+        SceneManager.LoadScene("PLAZA");
     }
     //CACAO
     public void OpenContentCACAO(){
@@ -92,10 +55,12 @@ public class PanelManager : MonoBehaviour
 
     public void OpenSceneCACAO(){
         MinigamePanel.SetActive(false);
+        SceneManager.LoadScene("CACAO");
     }
 
-    public void ReturnToMenuCACAO(){
-        LvlCompleteChecker.CompleteCACAO = true;
+    public void ReturnToPlazaCACAO(){
+        Stats.CompleteCACAO = true;
+        SceneManager.LoadScene("PLAZA");
     }
     //Close Panel
     public void ClosePanel(){
@@ -117,8 +82,38 @@ public class PanelManager : MonoBehaviour
         }
     }
 
+    public void SureExit(){
+        SureExitPanel.SetActive(true);
+    }
+
+    public void closeSureExit(){
+        SureExitPanel.SetActive(false);
+    }
+
     public void ReturnToMenu(){
         SceneManager.LoadScene("MENU");
+    }
+
+    public void Credits(){
+        CreditsPanel.SetActive(true);
+    }
+
+    public void CloseCredits(){
+        CreditsPanel.SetActive(false);
+    }
+
+    //Pantallas de carga
+
+    public void PantallaCargaGODS(){
+
+    }
+
+    public void PantallaCargaDEATH(){
+
+    }
+
+    public void PantallaCargaCACAO(){
+
     }
 
 

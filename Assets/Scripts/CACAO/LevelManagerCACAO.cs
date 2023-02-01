@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelManagerCACAO : MonoBehaviour
 {
-    GameManager Manager;
+    PanelManager Panel;
     // Start is called before the first frame update
     void Start()
     {
-        Manager.CallGameObjects();
+
     }
 
     // Update is called once per frame
@@ -18,6 +18,7 @@ public class LevelManagerCACAO : MonoBehaviour
         
     }
     public void LvlCompleteCACAO(){
-        GameManager.LvlComplete = "CACAO";
+        GameManager.Instance.CompleteLvlCACAO();
+        Panel.ReturnToPlazaCACAO();
     }
 }
