@@ -1,3 +1,4 @@
+using System.Dynamic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,6 +11,18 @@ public class PanelManager : MonoBehaviour
 
     [SerializeField] GameObject PausePanel, MinigamePanel, LvlCompletePanel, PanelPantallaCarga, SureExitPanel, CreditsPanel, MenuPanel;
     [SerializeField] GameObject ContentGODS, ContentDEATH, ContentCACAO, CargaGODS, CargaDEATH, CargaCACAO;
+
+    public static PanelManager instance;
+
+    void Awake()
+    {
+        if (PanelManager.instance == null){
+            PanelManager.instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(gameObject);
+        }
+    }
 
     //GODS
     public void OpenContentGODS(){
@@ -68,7 +81,8 @@ public class PanelManager : MonoBehaviour
     }
     //Game Stats
     public void StartGame(){
-        GameStarted = true;
+        SceneManager.LoadScene("PLAZA");
+        MenuPanel.SetActive(false);
     }
 
     public void Pause(){

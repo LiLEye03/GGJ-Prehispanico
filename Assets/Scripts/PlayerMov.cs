@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerMov : MonoBehaviour
 {
     public float speed = 10.0f;
-    PanelManager Panel;
     private Rigidbody2D rb;
 
     void Start()
@@ -26,21 +25,21 @@ public class PlayerMov : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("GODS")){
-            Panel.OpenContentGODS();
+            PanelManager.instance.OpenContentGODS();
         } else {
-            Panel.ClosePanel();
+            PanelManager.instance.ClosePanel();
         }
         
         if (other.gameObject.CompareTag("DEATH")){
-            Panel.OpenContentDEATH();
+            PanelManager.instance.OpenContentDEATH();
         } else {
-            Panel.ClosePanel();
+            PanelManager.instance.ClosePanel();
         }
 
         if (other.gameObject.CompareTag("CACAO")){
-            Panel.OpenContentCACAO();
+            PanelManager.instance.OpenContentCACAO();
         } else { 
-            Panel.ClosePanel();
+            PanelManager.instance.ClosePanel();
         }
     }
 }
