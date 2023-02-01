@@ -3,7 +3,20 @@ guid: a3ec6266edfa8b74bb60398b6583bbf3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - miniGamePanel: {fileID: 8205244682878176802, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
+  - godsPanel: {instanceID: 0}
+  - deathPanel: {instanceID: 0}
+  - cacaoPanel: {instanceID: 0}
+  - LvlCompletePanel: {instanceID: 0}
+  - LvlCompleteGODS: {instanceID: 0}
+  - LvlCompleteDEATH: {instanceID: 0}
+  - LvlCompleteCACAO: {instanceID: 0}
+  - checkMarkGODS: {instanceID: 0}
+  - checkMarkDEATH: {instanceID: 0}
+  - checkMarkCACAO: {instanceID: 0}
+  - PausePanel: {instanceID: 0}
+  - MenuPanel: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
