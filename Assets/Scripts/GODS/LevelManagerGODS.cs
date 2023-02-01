@@ -17,8 +17,7 @@ public class LevelManagerGODS : MonoBehaviour
         
     }
 
-    public void GoToMenu(){
-        SaveBoolean.godsBool = true;
-        SceneManager.LoadScene("SampleScene");
+    public void LvlCompleteGODS(){
+        GameManager.LvlComplete = "GODS";
     }
 }
