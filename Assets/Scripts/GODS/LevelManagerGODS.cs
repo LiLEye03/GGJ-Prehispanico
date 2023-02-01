@@ -8,7 +8,7 @@ public class LevelManagerGODS : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameManager.Instance.CallGameObjects();
     }
 
     // Update is called once per frame
@@ -18,6 +18,7 @@ public class LevelManagerGODS : MonoBehaviour
     }
 
     public void LvlCompleteGODS(){
-        GameManager.LvlComplete = "GODS";
+        LvlCompleteChecker.CompleteGODS = true;
+        PanelManager.Instance.ReturnToMenuGODS();
     }
 }

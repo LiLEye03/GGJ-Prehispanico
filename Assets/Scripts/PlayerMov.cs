@@ -11,6 +11,7 @@ public class PlayerMov : MonoBehaviour
 
     void Start()
     {
+        GameManager.Instance.CallGameObjects();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -26,15 +27,21 @@ public class PlayerMov : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("GODS")){
-            GameManager.miniGameStat = "GODS";
+            PanelManager.Instance.OpenContentGODS();
+        } else {
+            PanelManager.Instance.ClosePanel();
         }
         
         if (other.gameObject.CompareTag("DEATH")){
-            GameManager.miniGameStat = "DEATH";
+            PanelManager.Instance.OpenContentDEATH();
+        } else {
+            PanelManager.Instance.ClosePanel();
         }
 
         if (other.gameObject.CompareTag("CACAO")){
-            GameManager.miniGameStat = "CACAO";
+            PanelManager.Instance.OpenContentCACAO();
+        } else { 
+            PanelManager.Instance.ClosePanel();
         }
     }
 }

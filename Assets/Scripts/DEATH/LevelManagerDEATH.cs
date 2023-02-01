@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class LevelManagerDEATH : MonoBehaviour
     void Start()
     {
         timer = 5;
+        GameManager.Instance.CallGameObjects();
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class LevelManagerDEATH : MonoBehaviour
         print(timer);
     }
     public void LvlCompleteDEATH(){
-        GameManager.LvlComplete = "DEATH";
+        LvlCompleteChecker.CompleteGODS = true;
+        PanelManager.Instance.ReturnToMenuDEATH();
     }
 }
