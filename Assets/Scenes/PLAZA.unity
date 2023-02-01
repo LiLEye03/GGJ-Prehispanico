@@ -2621,6 +2621,7 @@ MonoBehaviour:
   checkMarkGODS: {fileID: 1525293704}
   checkMarkDEATH: {fileID: 1703763685}
   checkMarkCACAO: {fileID: 599677074}
+  LvlCompletePanel: {fileID: 0}
   PausePanel: {fileID: 1222238811}
   MenuPanel: {fileID: 691435731}
 --- !u!4 &1513774548
@@ -4224,6 +4225,7 @@ GameObject:
   - component: {fileID: 2120108867}
   - component: {fileID: 2120108866}
   - component: {fileID: 2120108865}
+  - component: {fileID: 2120108868}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -4281,6 +4283,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2120108868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120108864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0deb422f56469d49bc1394002953257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2133607054
 GameObject:
   m_ObjectHideFlags: 0
