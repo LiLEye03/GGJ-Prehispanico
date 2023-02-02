@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManagerDEATH : MonoBehaviour
 {
-    PanelManager Panel;
     float timer;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +27,5 @@ public class LevelManagerDEATH : MonoBehaviour
     }
     public void LvlCompleteDEATH(){
         GameManager.Instance.CompleteLvlDEATH();
-        Panel.ReturnToPlazaDEATH();
     }
 }

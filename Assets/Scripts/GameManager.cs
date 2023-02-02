@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Menu();
-        PanelManager.GamePaused = false;
     }
 
     void Update()

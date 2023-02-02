@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManagerGODS : MonoBehaviour
 {
-    PanelManager Panel;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +19,5 @@ public class LevelManagerGODS : MonoBehaviour
 
     public void LvlCompleteGODS(){
         GameManager.Instance.CompleteLvlGODS();
-        Panel.ReturnToPlazaGODS();
     }
 }
