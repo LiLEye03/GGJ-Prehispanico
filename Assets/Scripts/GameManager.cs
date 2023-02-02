@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    //  Booleanos:     Revisa si los Minijuegos fueron completados || Revisa si el Juego fue Iniciado
     public static bool CompleteGODS, CompleteDEATH, CompleteCACAO, GameStarted, GamePaused;
+    //                          Paneles Generales
     [SerializeField] GameObject PausePanel, MinigamePanel, LvlCompletePanel, PanelPantallaCarga, SureExitPanel, CreditsPanel, MenuPanel;
-    [SerializeField] GameObject ContentGODS, ContentDEATH, ContentCACAO, CargaGODS, CargaDEATH, CargaCACAO;
+    //                          Panel de Contenido Minijuego            Panel de Juego Ganado en Minijuego
+    [SerializeField] GameObject ContentGODS, ContentDEATH, ContentCACAO, WinGODS, WinDEATH, WinCACAO;
     public static string GameStat;
     [SerializeField] string EstadoDeJuego = GameStat;
 
@@ -20,9 +23,9 @@ public class GameManager : MonoBehaviour
         ContentGODS.SetActive(false);
         ContentDEATH.SetActive(false);
         ContentCACAO.SetActive(false);
-        CargaGODS.SetActive(false);
-        CargaDEATH.SetActive(false);
-        CargaCACAO.SetActive(false);
+        WinGODS.SetActive(false);
+        WinDEATH.SetActive(false);
+        WinCACAO.SetActive(false);
         LvlCompletePanel.SetActive(false);
         PanelPantallaCarga.SetActive(false);
         SureExitPanel.SetActive(false);
@@ -77,8 +80,8 @@ public class GameManager : MonoBehaviour
     }
     public void ClosePanel(){
         if (GameStat == "Menu"){
-            DisableAllPanels();
             MenuPanel.SetActive(true);
+            DisableAllPanels();
         } else {
         DisableAllPanels();
         }
@@ -118,21 +121,21 @@ public class GameManager : MonoBehaviour
     public void GODSwin(){
         DisableAllPanels();
         LvlCompletePanel.SetActive(true);
-        CargaGODS.SetActive(true);
+        WinGODS.SetActive(true);
         CompleteGODS = true;
         SceneManager.LoadScene("PLAZA");
     }
     public void DEATHwin(){
         DisableAllPanels();
         LvlCompletePanel.SetActive(true);
-        CargaDEATH.SetActive(true);
+        WinDEATH.SetActive(true);
         CompleteDEATH = true;
         SceneManager.LoadScene("PLAZA");
     }
     public void CACAOwin(){
         DisableAllPanels();
         LvlCompletePanel.SetActive(true);
-        CargaCACAO.SetActive(true);
+        WinCACAO.SetActive(true);
         CompleteCACAO = true;
         SceneManager.LoadScene("PLAZA");
     }
@@ -179,16 +182,16 @@ public class GameManager : MonoBehaviour
     }
 
     //Pantallas de carga
-
-    public void PantallaCargaGODS(){
-
-    }
-
-    public void PantallaCargaDEATH(){
+    // Estas Pantallas de Carga nos informan sobre la temática del Minijuego
+    public void PantallaWinGODS(){
 
     }
 
-    public void PantallaCargaCACAO(){
+    public void PantallaWinDEATH(){
+
+    }
+
+    public void PantallaWinCACAO(){
 
     }
 

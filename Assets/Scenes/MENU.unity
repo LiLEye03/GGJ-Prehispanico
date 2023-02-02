@@ -802,6 +802,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7871280019024566629, guid: 4608f6e6afe2b214bae61ba057467801, type: 3}
+      propertyPath: WinGODS
+      value: 
+      objectReference: {fileID: 21656789}
+    - target: {fileID: 7871280019024566629, guid: 4608f6e6afe2b214bae61ba057467801, type: 3}
+      propertyPath: WinCACAO
+      value: 
+      objectReference: {fileID: 723101227}
+    - target: {fileID: 7871280019024566629, guid: 4608f6e6afe2b214bae61ba057467801, type: 3}
+      propertyPath: WinDEATH
+      value: 
+      objectReference: {fileID: 654792083}
+    - target: {fileID: 7871280019024566629, guid: 4608f6e6afe2b214bae61ba057467801, type: 3}
       propertyPath: CargaGODS
       value: 
       objectReference: {fileID: 21656789}

@@ -26,20 +26,21 @@ public class PlayerMov : MonoBehaviour
     {
         if (other.gameObject.CompareTag("GODS")){
             GameManager.Instance.GODS();
-        } else {
-            GameManager.Instance.ClosePanel();
-        }
-        
-        if (other.gameObject.CompareTag("DEATH")){
+        } else if (other.gameObject.CompareTag("DEATH")){
             GameManager.Instance.DEATH();
-        } else {
-            GameManager.Instance.ClosePanel();
-        }
-
-        if (other.gameObject.CompareTag("CACAO")){
+        } else if (other.gameObject.CompareTag("CACAO")){
             GameManager.Instance.CACAO();
-        } else { 
+        } 
+    }
+
+        void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("GODS")){
             GameManager.Instance.ClosePanel();
-        }
+        } else if (other.gameObject.CompareTag("DEATH")){
+            GameManager.Instance.ClosePanel();
+        } else if (other.gameObject.CompareTag("CACAO")){
+            GameManager.Instance.ClosePanel();
+        } 
     }
 }
