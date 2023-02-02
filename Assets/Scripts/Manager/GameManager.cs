@@ -21,12 +21,14 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
+        PanelManager.GamePaused = false;
     }
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            PanelManager.instance.Pause();
+        }
     }
 
     //Niveles completos

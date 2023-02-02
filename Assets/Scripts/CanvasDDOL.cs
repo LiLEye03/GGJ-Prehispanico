@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DontDestroy : MonoBehaviour
+public class CanvasDDOL : MonoBehaviour
 {
-    public static DontDestroy instance = null;
+    public static CanvasDDOL instance = null;
 
     private void Awake()
     {
-        if (DontDestroy.instance == null)
+        if (CanvasDDOL.instance == null)
         {
-            DontDestroy.instance = this;
+            CanvasDDOL.instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else 

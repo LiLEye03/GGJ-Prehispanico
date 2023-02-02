@@ -90,7 +90,7 @@ public class PanelManager : MonoBehaviour
         MinigamePanel.SetActive(false);
         PausePanel.SetActive(true);
         Time.timeScale = 0;
-        } else {
+        } else if (GamePaused == false){
             PausePanel.SetActive(false);
             Time.timeScale = 1;
         }
