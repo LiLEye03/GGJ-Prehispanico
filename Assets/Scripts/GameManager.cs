@@ -1,3 +1,4 @@
+using System.Dynamic;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     //  Booleanos:     Revisa si los Minijuegos fueron completados || Revisa si el Juego fue Iniciado
-    public static bool CompleteGODS, CompleteDEATH, CompleteCACAO, GameStarted, GamePaused;
+    [SerializeField] bool CompleteGODS, CompleteDEATH, CompleteCACAO, GameStarted, GamePaused;
     //                          Paneles Generales
     [SerializeField] GameObject PausePanel, MinigamePanel, LvlCompletePanel, PanelPantallaCarga, SureExitPanel, CreditsPanel, MenuPanel;
     //                          Panel de Contenido Minijuego            Panel de Juego Ganado en Minijuego
@@ -48,11 +49,19 @@ public class GameManager : MonoBehaviour
     {
         Menu();
     }
-
+    //debug  patas  Atte: Randy
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)){
             Pause();
+        }
+
+        //Control de Estados de Juego (Tener mayor control de las escenas)
+
+        if (GameStat == "OnPLAZA"){
+            LvlCompletePanel.SetActive(false);
+        } else if (GameStat == "OnGODS"){
+            
         }
     }
 
@@ -108,6 +117,7 @@ public class GameManager : MonoBehaviour
         ContentDEATH.SetActive(true);
     }
     public void SceneDEATH(){
+        DisableAllPanels();
         SceneManager.LoadScene("DEATH");
     }
     public void CACAO(){
@@ -119,31 +129,26 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("CACAO");
     }
     public void GODSwin(){
-        DisableAllPanels();
-        LvlCompletePanel.SetActive(true);
-        WinGODS.SetActive(true);
-        CompleteGODS = true;
+        LvlCompletePanel.SetActive(false);
         SceneManager.LoadScene("PLAZA");
     }
     public void DEATHwin(){
-        DisableAllPanels();
-        LvlCompletePanel.SetActive(true);
-        WinDEATH.SetActive(true);
-        CompleteDEATH = true;
+        GameStat = "OnPLAZA";
+        LvlCompletePanel.SetActive(false);
         SceneManager.LoadScene("PLAZA");
     }
     public void CACAOwin(){
-        DisableAllPanels();
-        LvlCompletePanel.SetActive(true);
-        WinCACAO.SetActive(true);
-        CompleteCACAO = true;
         SceneManager.LoadScene("PLAZA");
+        DisableAllPanels();
     }
 
     //Niveles completos
 
     //GODS
     public void CompleteLvlGODS(){
+        DisableAllPanels();
+        LvlCompletePanel.SetActive(true);
+        WinGODS.SetActive(true);
         CompleteGODS = true;
         print("Haz completado el nivel 'GODS'");
     }
@@ -155,6 +160,9 @@ public class GameManager : MonoBehaviour
 
     //DEATH
     public void CompleteLvlDEATH(){
+        DisableAllPanels();
+        LvlCompletePanel.SetActive(true);
+        WinDEATH.SetActive(true);
         CompleteDEATH = true;
         print("Haz completado el nivel 'DEATH'");
     }
@@ -167,6 +175,9 @@ public class GameManager : MonoBehaviour
     //CACAO
     public void CompleteLvlCACAO(){
         CompleteCACAO = true;
+        DisableAllPanels();
+        LvlCompletePanel.SetActive(true);
+        WinCACAO.SetActive(true);
         print("Haz completado el nivel 'CACAO'");
     }
 
@@ -193,6 +204,16 @@ public class GameManager : MonoBehaviour
 
     public void PantallaWinCACAO(){
 
+    }
+
+    //Sistema de Lenguage
+
+    public void ChangeLanguage(){
+        if (LanguageManager.Language == "Spanish - ES"){
+            LanguageManager.Language = "English - EN";
+        } else if (LanguageManager.Language == "English - EN"){
+            LanguageManager.Language = "Spanish - ES";
+        }
     }
 
 }

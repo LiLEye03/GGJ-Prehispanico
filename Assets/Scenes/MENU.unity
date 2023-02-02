@@ -128,6 +128,64 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8143155077483402634, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
   m_PrefabInstance: {fileID: 894155375}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &552721133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 552721135}
+  - component: {fileID: 552721134}
+  m_Layer: 0
+  m_Name: LanguageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &552721134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552721133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64739565b1ea51b489843f4724a374b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartButton: {fileID: 0}
+  CreditsButton: {fileID: 0}
+  Title: {fileID: 0}
+  Credits: {fileID: 0}
+  ContentGODS: {fileID: 0}
+  ChargingGODS: {fileID: 0}
+  WinGODS: {fileID: 0}
+  ContentDEATH: {fileID: 0}
+  ChargingDEATH: {fileID: 0}
+  WinDEATH: {fileID: 0}
+  ContentCACAO: {fileID: 0}
+  ChargingCACAO: {fileID: 0}
+  WinCACAO: {fileID: 0}
+  WinGame: {fileID: 0}
+--- !u!4 &552721135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552721133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 371.4538, y: 206.59319, z: 1.4661134}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654792083 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5537629952499078359, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
@@ -297,7 +355,7 @@ PrefabInstance:
       objectReference: {fileID: 2018147713}
     - target: {fileID: 1006518520588082005, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CompleteLvlGODS
+      value: GODSwin
       objectReference: {fileID: 0}
     - target: {fileID: 1006518520588082005, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -313,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 2018147713}
     - target: {fileID: 1867743081773407655, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CompleteLvlDEATH
+      value: DEATHwin
       objectReference: {fileID: 0}
     - target: {fileID: 1867743081773407655, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -425,7 +483,7 @@ PrefabInstance:
       objectReference: {fileID: 2018147713}
     - target: {fileID: 3919801588561191609, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CompleteLvlCACAO
+      value: CACAOwin
       objectReference: {fileID: 0}
     - target: {fileID: 3919801588561191609, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
