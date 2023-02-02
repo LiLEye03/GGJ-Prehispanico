@@ -8,6 +8,7 @@ TagManager:
   - DEATH
   - GODS
   - FINAL
+  - SueloCa
   layers:
   - Default
   - TransparentFX
