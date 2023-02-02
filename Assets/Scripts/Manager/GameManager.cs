@@ -7,7 +7,29 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public static bool CompleteGODS, CompleteDEATH, CompleteCACAO;
+    public static bool CompleteGODS, CompleteDEATH, CompleteCACAO, GameStarted, GamePaused;
+    [SerializeField] GameObject PausePanel, MinigamePanel, LvlCompletePanel, PanelPantallaCarga, SureExitPanel, CreditsPanel, MenuPanel;
+    [SerializeField] GameObject ContentGODS, ContentDEATH, ContentCACAO, CargaGODS, CargaDEATH, CargaCACAO;
+    public static string GameStat;
+    [SerializeField] string EstadoDeJuego = GameStat;
+
+    //Estados de Juego
+    private void DisableAllPanels(){
+        PausePanel.SetActive(false);
+        MinigamePanel.SetActive(false);
+        ContentGODS.SetActive(false);
+        ContentDEATH.SetActive(false);
+        ContentCACAO.SetActive(false);
+        CargaGODS.SetActive(false);
+        CargaDEATH.SetActive(false);
+        CargaCACAO.SetActive(false);
+        LvlCompletePanel.SetActive(false);
+        PanelPantallaCarga.SetActive(false);
+        SureExitPanel.SetActive(false);
+        CreditsPanel.SetActive(false);
+        MenuPanel.SetActive(false);
+    }
+
 
     void Awake()
     {
@@ -21,14 +43,99 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Menu();
         PanelManager.GamePaused = false;
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)){
-            PanelManager.instance.Pause();
+            Pause();
         }
+    }
+
+    //Estados de Juego
+    public void Menu(){
+        GameStat = "Menu";
+        DisableAllPanels();
+        MenuPanel.SetActive(true);
+    }
+
+    public void StartGame(){
+        GameStat = "Game";
+        DisableAllPanels();
+        SceneManager.LoadScene("PLAZA");
+    }
+
+    public void Pause(){
+        if (GamePaused == true){
+            DisableAllPanels();
+            PausePanel.SetActive(true);
+        } else {
+            DisableAllPanels();
+            PausePanel.SetActive(false);
+        }
+    }
+    public void ClosePanel(){
+        if (GameStat == "Menu"){
+            DisableAllPanels();
+            MenuPanel.SetActive(true);
+        } else {
+        DisableAllPanels();
+        }
+    }
+    public void Creditos(){
+        DisableAllPanels();
+        CreditsPanel.SetActive(true);
+    }
+    public void SureExit(){
+        DisableAllPanels();
+        SureExitPanel.SetActive(true);
+    }
+    public void GODS(){
+        DisableAllPanels();
+        MinigamePanel.SetActive(true);
+        ContentGODS.SetActive(true);
+    }
+    public void SceneGODS(){
+        SceneManager.LoadScene("GODS");
+    }
+    public void DEATH(){
+        DisableAllPanels();
+        MinigamePanel.SetActive(true);
+        ContentDEATH.SetActive(true);
+    }
+    public void SceneDEATH(){
+        SceneManager.LoadScene("DEATH");
+    }
+    public void CACAO(){
+        DisableAllPanels();
+        MinigamePanel.SetActive(true);
+        ContentCACAO.SetActive(true);
+    }
+    public void SceneCACAO(){
+        SceneManager.LoadScene("CACAO");
+    }
+    public void GODSwin(){
+        DisableAllPanels();
+        LvlCompletePanel.SetActive(true);
+        CargaGODS.SetActive(true);
+        CompleteGODS = true;
+        SceneManager.LoadScene("PLAZA");
+    }
+    public void DEATHwin(){
+        DisableAllPanels();
+        LvlCompletePanel.SetActive(true);
+        CargaDEATH.SetActive(true);
+        CompleteDEATH = true;
+        SceneManager.LoadScene("PLAZA");
+    }
+    public void CACAOwin(){
+        DisableAllPanels();
+        LvlCompletePanel.SetActive(true);
+        CargaCACAO.SetActive(true);
+        CompleteCACAO = true;
+        SceneManager.LoadScene("PLAZA");
     }
 
     //Niveles completos
@@ -70,6 +177,20 @@ public class GameManager : MonoBehaviour
         ClearLvlGODS();
         ClearLvlDEATH();
         ClearLvlCACAO();
+    }
+
+    //Pantallas de carga
+
+    public void PantallaCargaGODS(){
+
+    }
+
+    public void PantallaCargaDEATH(){
+
+    }
+
+    public void PantallaCargaCACAO(){
+
     }
 
 }

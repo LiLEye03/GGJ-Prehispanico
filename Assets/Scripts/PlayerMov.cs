@@ -25,21 +25,21 @@ public class PlayerMov : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("GODS")){
-            PanelManager.instance.OpenContentGODS();
+            GameManager.Instance.GODS();
         } else {
-            PanelManager.instance.ClosePanel();
+            GameManager.Instance.ClosePanel();
         }
         
         if (other.gameObject.CompareTag("DEATH")){
-            PanelManager.instance.OpenContentDEATH();
+            GameManager.Instance.DEATH();
         } else {
-            PanelManager.instance.ClosePanel();
+            GameManager.Instance.ClosePanel();
         }
 
         if (other.gameObject.CompareTag("CACAO")){
-            PanelManager.instance.OpenContentCACAO();
+            GameManager.Instance.CACAO();
         } else { 
-            PanelManager.instance.ClosePanel();
+            GameManager.Instance.ClosePanel();
         }
     }
 }
