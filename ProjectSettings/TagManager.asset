@@ -12,6 +12,8 @@ TagManager:
   - PJ
   - TrashCoin
   - CoinCao
+  - AltarPool
+  - FlorPool
   layers:
   - Default
   - TransparentFX

@@ -2,16 +2,80 @@ using System.ComponentModel;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Pool;
 
 public class LevelManagerDEATH : MonoBehaviour
 {
-    float timer;
+    [SerializeField] float timer;
+
+    //Objetos Object Pooler
+    //Altar
+    [SerializeField] private GameObject AltarPrefab;
+    [SerializeField] private List<GameObject> AltarList;
+    [SerializeField] private int AltarPoolSize;
+    //Flores
+    [SerializeField] private GameObject FlorPrefab;
+    [SerializeField] private List<GameObject> FlorList;
+    [SerializeField] private int FlorPoolSize;
+
+    private static LevelManagerDEATH instance;
+    public static LevelManagerDEATH Instance {get { return Instance;}}
+
+    private void Awake()
+    {
+        if (instance == null){
+            instance = this;
+        } else {
+            Destroy(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        timer = 5;
+
+    //Object Pooler
+    AddAltaresToPool(AltarPoolSize);
+    AddFloresToPool(FlorPoolSize); 
     }
+
+    private void AddAltaresToPool(int amount){
+        for (int i = 0; i< AltarPoolSize; i++){
+            GameObject Altar = Instantiate(AltarPrefab);
+            Altar.SetActive(true);
+            AltarList.Add(Altar);
+            Altar.transform.parent = transform;
+        }
+    }
+    private void AddFloresToPool(int amount){
+        for (int i = 0; i < FlorPoolSize; i++){
+            GameObject Flor = Instantiate(FlorPrefab);
+            Flor.SetActive(true);
+            FlorList.Add(Flor);
+            Flor.transform.parent = transform;
+        }
+    }
+
+    private GameObject RequestAltar(){
+        for (int i = 0; i < AltarList.Count; i++){
+            if (!AltarList[i].activeSelf){
+                AltarList[i].SetActive(true);
+                return AltarList[i];
+            }
+        }
+        return null;
+    }
+
+    private GameObject RequestFlor(){
+        for (int i = 0; i < FlorList.Count; i++){
+            if (!FlorList[i].activeSelf){
+                FlorList[i].SetActive(true);
+                return FlorList[i];
+            }
+        }
+        return null;
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -31,7 +95,6 @@ public class LevelManagerDEATH : MonoBehaviour
 
 
     //Object Pooler 
-
 
     //Control Obstáculos
 }
