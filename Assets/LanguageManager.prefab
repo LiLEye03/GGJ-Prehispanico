@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3858748569102490548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3858748569102490550}
+  - component: {fileID: 3858748569102490551}
+  m_Layer: 0
+  m_Name: LanguageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3858748569102490550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3858748569102490548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 371.4538, y: 206.59319, z: 1.4661134}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3858748569102490551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3858748569102490548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64739565b1ea51b489843f4724a374b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartButton: {fileID: 0}
+  CreditsButton: {fileID: 0}
+  "Espa\xF1ol": 0
+  TitleES: {fileID: 0}
+  CreditsES: {fileID: 0}
+  ContentGODSEs: {fileID: 0}
+  ChargingGODSEs: {fileID: 0}
+  WinGODSEs: {fileID: 0}
+  ContentDEATHEs: {fileID: 0}
+  ChargingDEATHEs: {fileID: 0}
+  WinDEATHEs: {fileID: 0}
+  ContentCACAOEs: {fileID: 0}
+  ChargingCACAOEs: {fileID: 0}
+  WinCACAOes: {fileID: 0}
+  WinGameES: {fileID: 0}
+  "Ingl\xE9s": 0
+  TitleEN: {fileID: 0}
+  CreditsEN: {fileID: 0}
+  ContentGODSEn: {fileID: 0}
+  ChargingGODSEn: {fileID: 0}
+  WinGODSEn: {fileID: 0}
+  ContentDEATHEn: {fileID: 0}
+  ChargingDEATHEn: {fileID: 0}
+  WinDEATHEn: {fileID: 0}
+  ContentCACAOEn: {fileID: 0}
+  ChargingCACAOEn: {fileID: 0}
+  WinCACAOEn: {fileID: 0}
+  WinGameEN: {fileID: 0}
