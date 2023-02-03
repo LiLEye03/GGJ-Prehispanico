@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
 
         if (GameStat == "OnPLAZA"){
             LvlCompletePanel.SetActive(false);
+            Time.timeScale = 1;
         } 
     }
 
@@ -129,15 +130,11 @@ public class GameManager : MonoBehaviour
     //Se ejecuta cuando el nivel ha sido completado
     public void LvlCompletedGODS(){
         DisableAllPanels();
+        Time.timeScale = 0;
         LvlCompletePanel.SetActive(true);
         WinGODS.SetActive(true);
         CompleteGODS = true;
         print("Haz completado el nivel 'GODS'");
-    }
-    //Después de completar el nivel te envía de regreso a la plaza
-    public void GODSwin(){
-        LvlCompletePanel.SetActive(false);
-        SceneManager.LoadScene("PLAZA");
     }
     //Elimina los datos de juego
     public void ClearLvlGODS(){
@@ -163,15 +160,11 @@ public class GameManager : MonoBehaviour
     //Se ejecuta cuando el nivel ha sido completado
     public void LvlCompletedDEATH(){
         DisableAllPanels();
+        Time.timeScale = 0;
         LvlCompletePanel.SetActive(true);
         WinDEATH.SetActive(true);
         CompleteDEATH = true;
         print("Haz completado el nivel 'DEATH'");
-    }
-    //Después de completar el nivel te envía de regreso a la plaza
-    public void DEATHwin(){
-        GameStat = "OnPLAZA";
-        SceneManager.LoadScene("PLAZA");
     }
     //Elimina los datos de juego
     public void ClearLvlDEATH(){
@@ -203,14 +196,15 @@ public class GameManager : MonoBehaviour
     public void LvlCompletedCACAO(){
         CompleteCACAO = true;
         DisableAllPanels();
+        Time.timeScale = 0;
         LvlCompletePanel.SetActive(true);
         WinCACAO.SetActive(true);
         print("Haz completado el nivel 'CACAO'");
     }
     //Después de completar el nivel te envía de regreso a la plaza
-    public void CACAOwin(){
+    public void ReturnToPlaza(){
+        GameStat = "OnPLAZA";
         SceneManager.LoadScene("PLAZA");
-        DisableAllPanels();
     }
     //Elimina los datos de juego
     public void ClearLvlCACAO(){

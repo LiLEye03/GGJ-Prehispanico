@@ -13,22 +13,10 @@ public class LevelManagerDEATH : MonoBehaviour
     [SerializeField] private GameObject AltarPrefab;
     [SerializeField] private List<GameObject> AltarList;
     [SerializeField] private int AltarPoolSize;
-    //Flores
+    //Flor
     [SerializeField] private GameObject FlorPrefab;
     [SerializeField] private List<GameObject> FlorList;
     [SerializeField] private int FlorPoolSize;
-
-    private static LevelManagerDEATH instance;
-    public static LevelManagerDEATH Instance {get { return Instance;}}
-
-    private void Awake()
-    {
-        if (instance == null){
-            instance = this;
-        } else {
-            Destroy(gameObject);
-        }
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -36,27 +24,29 @@ public class LevelManagerDEATH : MonoBehaviour
 
     //Object Pooler
     AddAltaresToPool(AltarPoolSize);
-    AddFloresToPool(FlorPoolSize); 
+    AddFloresToPool(FlorPoolSize);
     }
 
     private void AddAltaresToPool(int amount){
         for (int i = 0; i< AltarPoolSize; i++){
             GameObject Altar = Instantiate(AltarPrefab);
-            Altar.SetActive(true);
+            Altar.SetActive(false);
             AltarList.Add(Altar);
             Altar.transform.parent = transform;
         }
     }
+
     private void AddFloresToPool(int amount){
         for (int i = 0; i < FlorPoolSize; i++){
             GameObject Flor = Instantiate(FlorPrefab);
-            Flor.SetActive(true);
+            Flor.SetActive(false);
             FlorList.Add(Flor);
             Flor.transform.parent = transform;
         }
     }
 
-    private GameObject RequestAltar(){
+
+    public GameObject RequestAltar(){
         for (int i = 0; i < AltarList.Count; i++){
             if (!AltarList[i].activeSelf){
                 AltarList[i].SetActive(true);
@@ -66,7 +56,7 @@ public class LevelManagerDEATH : MonoBehaviour
         return null;
     }
 
-    private GameObject RequestFlor(){
+    public GameObject RequestFlor(){
         for (int i = 0; i < FlorList.Count; i++){
             if (!FlorList[i].activeSelf){
                 FlorList[i].SetActive(true);
