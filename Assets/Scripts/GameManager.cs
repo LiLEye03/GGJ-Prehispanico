@@ -93,8 +93,8 @@ public class GameManager : MonoBehaviour
     //Cierra los paneles en general
     public void ClosePanel(){
         if (GameStat == "Menu"){
-            MenuPanel.SetActive(true);
             DisableAllPanels();
+            MenuPanel.SetActive(true);
         } else {
         DisableAllPanels();
         }
