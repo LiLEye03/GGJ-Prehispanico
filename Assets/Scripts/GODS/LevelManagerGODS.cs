@@ -18,6 +18,6 @@ public class LevelManagerGODS : MonoBehaviour
     }
 
     public void LvlCompleteGODS(){
-        GameManager.Instance.CompleteLvlGODS();
+        GameManager.Instance.LvlCompletedGODS();
     }
 }

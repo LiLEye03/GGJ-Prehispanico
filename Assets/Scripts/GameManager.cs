@@ -11,11 +11,10 @@ public class GameManager : MonoBehaviour
     //  Booleanos:     Revisa si los Minijuegos fueron completados || Revisa si el Juego fue Iniciado
     [SerializeField] bool CompleteGODS, CompleteDEATH, CompleteCACAO, GameStarted, GamePaused;
     //                          Paneles Generales
-    [SerializeField] GameObject PausePanel, MinigamePanel, LvlCompletePanel, PanelPantallaCarga, SureExitPanel, CreditsPanel, MenuPanel;
-    //                          Panel de Contenido Minijuego            Panel de Juego Ganado en Minijuego
-    [SerializeField] GameObject ContentGODS, ContentDEATH, ContentCACAO, WinGODS, WinDEATH, WinCACAO;
-    public static string GameStat;
-    [SerializeField] string EstadoDeJuego = GameStat;
+    [SerializeField] GameObject MenuPanel, CreditsPanel, PausePanel, MinigamePanel, LvlCompletePanel, PanelPantallaCarga, SureExitPanel;
+    //                        Contenido Paneles: Contenido Panel Minigame | contenido LvlCompletado | Contenido Pantalla de Carga
+    [SerializeField] GameObject ContentGODS, WinGODS, ContentGODSCarga,  ContentDEATH, WinDEATH, ContentDEATHCarga, ContentCACAO, WinCACAO, ContentCACAOCarga;
+    [SerializeField] string GameStat;
 
     //Estados de Juego
     private void DisableAllPanels(){
@@ -29,6 +28,9 @@ public class GameManager : MonoBehaviour
         WinCACAO.SetActive(false);
         LvlCompletePanel.SetActive(false);
         PanelPantallaCarga.SetActive(false);
+        ContentGODSCarga.SetActive(false);
+        ContentDEATHCarga.SetActive(false);
+        ContentCACAOCarga.SetActive(false);
         SureExitPanel.SetActive(false);
         CreditsPanel.SetActive(false);
         MenuPanel.SetActive(false);
@@ -60,15 +62,14 @@ public class GameManager : MonoBehaviour
 
         if (GameStat == "OnPLAZA"){
             LvlCompletePanel.SetActive(false);
-        } else if (GameStat == "OnGODS"){
-            
-        }
+        } 
     }
 
     //Estados de Juego
     public void Menu(){
         GameStat = "Menu";
         DisableAllPanels();
+        SceneManager.LoadScene("MENU");
         MenuPanel.SetActive(true);
     }
 
@@ -79,14 +80,17 @@ public class GameManager : MonoBehaviour
     }
 
     public void Pause(){
-        if (GamePaused == true){
+        if (GamePaused == false){
             DisableAllPanels();
             PausePanel.SetActive(true);
+            Time.timeScale = 0;
         } else {
             DisableAllPanels();
             PausePanel.SetActive(false);
+            Time.timeScale = 1;
         }
     }
+    //Cierra los paneles en general
     public void ClosePanel(){
         if (GameStat == "Menu"){
             MenuPanel.SetActive(true);
@@ -95,115 +99,129 @@ public class GameManager : MonoBehaviour
         DisableAllPanels();
         }
     }
+    //Abre el panel de creditos en el menu
     public void Creditos(){
         DisableAllPanels();
         CreditsPanel.SetActive(true);
     }
+    //Pegunta si quieres salir del minijuego para ir al menu
     public void SureExit(){
         DisableAllPanels();
         SureExitPanel.SetActive(true);
     }
+
+    //Paneles y Estados
+    //GODS
+    //Muestra en el panel la sinopsis del minijuego
     public void GODS(){
         DisableAllPanels();
         MinigamePanel.SetActive(true);
         ContentGODS.SetActive(true);
     }
+    //Te envía a la escena
     public void SceneGODS(){
+        DisableAllPanels();
         SceneManager.LoadScene("GODS");
+        PanelPantallaCarga.SetActive(true);
+        ContentGODSCarga.SetActive(true);
+        Time.timeScale = 0;
     }
-    public void DEATH(){
-        DisableAllPanels();
-        MinigamePanel.SetActive(true);
-        ContentDEATH.SetActive(true);
-    }
-    public void SceneDEATH(){
-        DisableAllPanels();
-        SceneManager.LoadScene("DEATH");
-    }
-    public void CACAO(){
-        DisableAllPanels();
-        MinigamePanel.SetActive(true);
-        ContentCACAO.SetActive(true);
-    }
-    public void SceneCACAO(){
-        SceneManager.LoadScene("CACAO");
-    }
-    public void GODSwin(){
-        LvlCompletePanel.SetActive(false);
-        SceneManager.LoadScene("PLAZA");
-    }
-    public void DEATHwin(){
-        GameStat = "OnPLAZA";
-        LvlCompletePanel.SetActive(false);
-        SceneManager.LoadScene("PLAZA");
-    }
-    public void CACAOwin(){
-        SceneManager.LoadScene("PLAZA");
-        DisableAllPanels();
-    }
-
-    //Niveles completos
-
-    //GODS
-    public void CompleteLvlGODS(){
+    //Se ejecuta cuando el nivel ha sido completado
+    public void LvlCompletedGODS(){
         DisableAllPanels();
         LvlCompletePanel.SetActive(true);
         WinGODS.SetActive(true);
         CompleteGODS = true;
         print("Haz completado el nivel 'GODS'");
     }
-
+    //Después de completar el nivel te envía de regreso a la plaza
+    public void GODSwin(){
+        LvlCompletePanel.SetActive(false);
+        SceneManager.LoadScene("PLAZA");
+    }
+    //Elimina los datos de juego
     public void ClearLvlGODS(){
         CompleteGODS = false;
         print("Se ha reiniciado el nivel 'GODS'");
     }
 
     //DEATH
-    public void CompleteLvlDEATH(){
+    //Muestra en el panel la sinopsis del minijuego
+    public void DEATH(){
+        DisableAllPanels();
+        MinigamePanel.SetActive(true);
+        ContentDEATH.SetActive(true);
+    }
+    //Te envía a la escena
+    public void SceneDEATH(){
+        DisableAllPanels();
+        SceneManager.LoadScene("DEATH");
+        PanelPantallaCarga.SetActive(true);
+        ContentDEATHCarga.SetActive(true);
+        Time.timeScale = 0;
+    }
+    //Se ejecuta cuando el nivel ha sido completado
+    public void LvlCompletedDEATH(){
         DisableAllPanels();
         LvlCompletePanel.SetActive(true);
         WinDEATH.SetActive(true);
         CompleteDEATH = true;
         print("Haz completado el nivel 'DEATH'");
     }
-
+    //Después de completar el nivel te envía de regreso a la plaza
+    public void DEATHwin(){
+        GameStat = "OnPLAZA";
+        SceneManager.LoadScene("PLAZA");
+    }
+    //Elimina los datos de juego
     public void ClearLvlDEATH(){
         CompleteDEATH = false;
         print("Se ha reiniciado el nivel 'DEATH'");
     }
 
     //CACAO
-    public void CompleteLvlCACAO(){
+    //Muestra en el panel la sinopsis del minijuego
+    public void CACAO(){
+        DisableAllPanels();
+        MinigamePanel.SetActive(true);
+        ContentCACAO.SetActive(true);
+    }
+    //Te envía a la escena
+    public void SceneCACAO(){
+        DisableAllPanels();
+        SceneManager.LoadScene("CACAO");
+        PanelPantallaCarga.SetActive(true);
+        ContentCACAOCarga.SetActive(true);
+        Time.timeScale = 0;
+    }
+    //Desactiva la pantalla de carga e inicia el nivel
+    public void StartMinigame(){
+        DisableAllPanels();
+        Time.timeScale = 1;
+    }
+    //Se ejecuta cuando el nivel ha sido completado
+    public void LvlCompletedCACAO(){
         CompleteCACAO = true;
         DisableAllPanels();
         LvlCompletePanel.SetActive(true);
         WinCACAO.SetActive(true);
         print("Haz completado el nivel 'CACAO'");
     }
-
+    //Después de completar el nivel te envía de regreso a la plaza
+    public void CACAOwin(){
+        SceneManager.LoadScene("PLAZA");
+        DisableAllPanels();
+    }
+    //Elimina los datos de juego
     public void ClearLvlCACAO(){
         CompleteCACAO = false;
         print("Se ha reiniciado el nivel 'CACAO'");
     }
-
+    //Elimina los datos de juego en general - Recomendable ejecutar en el Start del Script o al presionar el botón de START
     public void ClearAllLvls(){
         ClearLvlGODS();
         ClearLvlDEATH();
         ClearLvlCACAO();
-    }
-
-    //Pantallas de carga
-    // Estas Pantallas de Carga nos informan sobre la temática del Minijuego
-    public void PantallaWinGODS(){
-
-    }
-
-    public void PantallaWinDEATH(){
-
-    }
-
-    public void PantallaWinCACAO(){
-
     }
 
     //Sistema de Lenguage

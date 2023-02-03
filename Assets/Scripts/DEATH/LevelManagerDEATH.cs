@@ -26,6 +26,12 @@ public class LevelManagerDEATH : MonoBehaviour
         print(timer);
     }
     public void LvlCompleteDEATH(){
-        GameManager.Instance.CompleteLvlDEATH();
+        GameManager.Instance.LvlCompletedDEATH();
     }
+
+
+    //Object Pooler 
+
+
+    //Control Obstáculos
 }

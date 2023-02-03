@@ -17,6 +17,6 @@ public class LevelManagerCACAO : MonoBehaviour
         
     }
     public void LvlCompleteCACAO(){
-        GameManager.Instance.CompleteLvlCACAO();
+        GameManager.Instance.LvlCompletedCACAO();
     }
 }
