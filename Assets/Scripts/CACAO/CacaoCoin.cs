@@ -17,8 +17,10 @@ public class CacaoCoin : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (other.gameObject.tag=="SueloCa")
+        else if (other.CompareTag("SueloCa"))
         {
+            other.gameObject.GetComponent<TakeCao>().TirarCacao();
+            print ("Perio un punto");
             Destroy(gameObject);
         }
     }
