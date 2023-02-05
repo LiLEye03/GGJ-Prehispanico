@@ -13,25 +13,14 @@ public class SpawnerObjets : MonoBehaviour
     public Transform Xmax;
     public Transform Xmin;
 
-    public TimerControlCao Apagar;
-    private bool ApagarSpawner=true;
-
-
     void Start()
     {
-        Apagar = FindObjectOfType<TimerControlCao>();
-        if (ApagarSpawner)
-        {
         InvokeRepeating("SpawnCacao", timeSpawn, repeatSpawn);
         InvokeRepeating("SpawnTrash", timeSpawnTra, repeatSpawnTra);
-        }
     }
 
     void Update() {
-        if (Apagar.mark==false)
-        {
-            ApagarSpawner=false;
-        }
+
     }
 
     public void SpawnCacao()

@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     //  Booleanos:     Revisa si los Minijuegos fueron completados || Revisa si el Juego fue Iniciado
     [SerializeField] bool CompleteGODS, CompleteDEATH, CompleteCACAO, GameStarted;
     //                          Paneles Generales
-    [SerializeField] GameObject MenuPanel, CreditsPanel, PausePanel, MinigamePanel, LvlCompletePanel, PanelPantallaCarga, SureExitPanel;
+    [SerializeField] GameObject MenuPanel, CreditsPanel, PausePanel, MinigamePanel, LvlCompletePanel, PanelPantallaCarga, SureExitPanel, GameOverPanel;
     //                        Contenido Paneles: Contenido Panel Minigame | contenido LvlCompletado | Contenido Pantalla de Carga
     [SerializeField] GameObject ContentGODS, ContentGODSCarga,  ContentDEATH, ContentDEATHCarga, ContentCACAO, ContentCACAOCarga, checkmark;
     [SerializeField] string GameStat, SceneLoaded;
@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         CreditsPanel.SetActive(false);
         MenuPanel.SetActive(false);
         checkmark.SetActive(false);
+        GameOverPanel.SetActive(false);
     }
 
 
@@ -173,6 +174,10 @@ public class GameManager : MonoBehaviour
     public void ClearLvlGODS(){
         CompleteGODS = false;
         print("Se ha reiniciado el nivel 'GODS'");
+    }
+    public void GameOverGODS(){
+        DisableAllPanels();
+        GameOverPanel.SetActive(true);
     }
 
     //DEATH
