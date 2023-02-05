@@ -90,8 +90,8 @@ public class PlayerMov : MonoBehaviour
 
         if (other.CompareTag("Rayo"))
         {
-            Destroy(gameObject);
             GameManager.Instance.LvlCompletedGODS();
+            gameObject.SetActive(false);
         }
     }
 

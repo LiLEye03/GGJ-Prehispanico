@@ -24,7 +24,7 @@ public class LevelManagerCACAO : MonoBehaviour
         vidas--;
         lives.text = vidas.ToString();
         if (vidas<=0){
-            LvlCompleteCACAO();
+            GameManager.Instance.LvlCompletedCACAO();
         }
     }
 
