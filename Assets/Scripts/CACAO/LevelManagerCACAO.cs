@@ -24,7 +24,7 @@ public class LevelManagerCACAO : MonoBehaviour
         vidas--;
         lives.text = vidas.ToString();
         if (vidas<=0){
-            print("HAS PERDIDO EL JUEGO");
+            LvlCompleteCACAO();
         }
     }
 
