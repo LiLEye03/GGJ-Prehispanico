@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelManagerCACAO : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public TextMeshProUGUI lives;
+    public int vidas=3;
     void Start()
     {
 
@@ -16,6 +18,16 @@ public class LevelManagerCACAO : MonoBehaviour
     {
         
     }
+
+    public void LosseHealt()
+    {
+        vidas--;
+        lives.text = vidas.ToString();
+        if (vidas<=0){
+            print("HAS PERDIDO EL JUEGO");
+        }
+    }
+
     public void LvlCompleteCACAO(){
         GameManager.Instance.LvlCompletedCACAO();
     }

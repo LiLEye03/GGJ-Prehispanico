@@ -22,12 +22,5 @@ public class TakeCao : MonoBehaviour
     {
         caoCoin+=10;
     }
-
-    public void TirarCacao()
-    {
-        if (caoCoin>=10)
-        {
-            caoCoin=caoCoin-10;
-        }
-    }
+    
 }
