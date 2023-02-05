@@ -86,7 +86,12 @@ public class PlayerMov : MonoBehaviour
             GameManager.Instance.DEATH();
         } else if (other.gameObject.CompareTag("CACAO")){
             GameManager.Instance.CACAO();
-        } 
+        }
+
+        if (other.CompareTag("Rayo"))
+        {
+            Destroy(gameObject);
+        }
     }
 
         void OnTriggerExit2D(Collider2D other)

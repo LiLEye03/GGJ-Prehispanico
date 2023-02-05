@@ -13,10 +13,14 @@ TagManager:
 <<<<<<< Updated upstream
   - AltarPool
   - FlorPool
+<<<<<<< Updated upstream
   - DamageCao
 =======
   - colliderAltar
   - Flor
+>>>>>>> Stashed changes
+=======
+  - Rayo
 >>>>>>> Stashed changes
   layers:
   - Default
