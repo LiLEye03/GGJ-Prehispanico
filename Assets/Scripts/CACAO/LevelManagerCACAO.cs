@@ -21,11 +21,8 @@ public class LevelManagerCACAO : MonoBehaviour
 
     public void LosseHealt()
     {
-        if (vidas>=1)
-        {
         vidas--;
         lives.text = vidas.ToString();
-        }
         if (vidas<=0){
             print("HAS PERDIDO EL JUEGO");
         }
