@@ -12,6 +12,7 @@ TagManager:
   - PJ
   - AltarPool
   - FlorPool
+  - DamageCao
   layers:
   - Default
   - TransparentFX

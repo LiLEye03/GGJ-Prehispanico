@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     Rigidbody2D rb;
-    public float speed = 12; //Cambiar a private al terminar las pruebas
+    private float speed = 12;
     private Animator animatorPJ;
     float move;
     void Start()
@@ -31,5 +31,14 @@ public class PlayerControl : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(move * speed, rb.velocity.y);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.gameObject.CompareTag("DamageCao"))
+        {
+            FindObjectOfType<LevelManagerCACAO>().LosseHealt();
+            print ("Perio una vida");
+        }    
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CanastaMove : MonoBehaviour
 {
     Rigidbody2D rb;
-    public float speed = 12; //Cambiar a private al terminar las pruebas
+    public float speed = 12; 
     
     float move;
     void Start()
