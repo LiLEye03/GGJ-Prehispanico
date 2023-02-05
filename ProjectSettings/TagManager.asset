@@ -10,18 +10,12 @@ TagManager:
   - FINAL
   - SueloCa
   - PJ
-<<<<<<< Updated upstream
   - AltarPool
   - FlorPool
-<<<<<<< Updated upstream
-  - DamageCao
-=======
-  - colliderAltar
-  - Flor
->>>>>>> Stashed changes
-=======
   - Rayo
->>>>>>> Stashed changes
+  - Flor
+  - DamageCao
+  - suelo
   layers:
   - Default
   - TransparentFX
