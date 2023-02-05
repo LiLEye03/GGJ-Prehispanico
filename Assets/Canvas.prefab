@@ -754,12 +754,12 @@ GameObject:
   - component: {fileID: 6735817528025585184}
   - component: {fileID: 3636319167871644740}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: WinMiniGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1785669379195092985
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6330,7 +6330,7 @@ GameObject:
   - component: {fileID: 5328140645539639926}
   - component: {fileID: 6494794754366794766}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Try Again
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
