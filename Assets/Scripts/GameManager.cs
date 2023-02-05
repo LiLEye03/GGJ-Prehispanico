@@ -9,12 +9,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     //  Booleanos:     Revisa si los Minijuegos fueron completados || Revisa si el Juego fue Iniciado
-    [SerializeField] bool CompleteGODS, CompleteDEATH, CompleteCACAO, GameStarted, GamePaused;
+    [SerializeField] bool CompleteGODS, CompleteDEATH, CompleteCACAO, GameStarted;
     //                          Paneles Generales
     [SerializeField] GameObject MenuPanel, CreditsPanel, PausePanel, MinigamePanel, LvlCompletePanel, PanelPantallaCarga, SureExitPanel;
     //                        Contenido Paneles: Contenido Panel Minigame | contenido LvlCompletado | Contenido Pantalla de Carga
     [SerializeField] GameObject ContentGODS, WinGODS, ContentGODSCarga,  ContentDEATH, WinDEATH, ContentDEATHCarga, ContentCACAO, WinCACAO, ContentCACAOCarga;
-    [SerializeField] string GameStat;
+    [SerializeField] string GameStat, SceneLoaded;
 
     //Estados de Juego
     private void DisableAllPanels(){
@@ -54,56 +54,89 @@ public class GameManager : MonoBehaviour
     //debug  patas  Atte: Randy
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)){
-            Pause();
+        //Controlador Boton Pausa
+        if (Input.GetKeyDown(KeyCode.Escape) && GameStat == "InGame")
+        {
+            GameStat = "InPause";
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && GameStat == "InPause")
+        {
+            GameStat = "InGame";
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && GameStat == "InMenu")
+        {
+            GameStat = "InMenu";
         }
 
         //Control de Estados de Juego (Tener mayor control de las escenas)
 
-        if (GameStat == "OnPLAZA"){
+        if (SceneLoaded == "PLAZA"){
             LvlCompletePanel.SetActive(false);
             Time.timeScale = 1;
-        } 
+        }
+
+        switch(GameStat){
+            case "InGame":
+            PausePanel.SetActive(false);
+            SureExitPanel.SetActive(false);
+            Time.timeScale = 1;
+            break;
+
+            case "InPause":
+            PausePanel.SetActive(true);
+            Time.timeScale = 0;
+            break;
+
+            case "InMenu":
+            DisableAllPanels();
+            MenuPanel.SetActive(true);
+            Time.timeScale = 1;
+            break;
+
+            case "InCredits":
+            CreditsPanel.SetActive(true);
+            MenuPanel.SetActive(false);
+            break;
+
+            case "InLoadingPanel":
+            Time.timeScale = 0;
+            break;
+        }
     }
 
     //Estados de Juego
     public void Menu(){
-        GameStat = "Menu";
+        GameStat = "InMenu";
         DisableAllPanels();
         SceneManager.LoadScene("MENU");
         MenuPanel.SetActive(true);
     }
 
     public void StartGame(){
-        GameStat = "Game";
+        GameStat = "InGame";
         DisableAllPanels();
         SceneManager.LoadScene("PLAZA");
     }
 
     public void Pause(){
-        if (GamePaused == false){
-            DisableAllPanels();
-            PausePanel.SetActive(true);
-            Time.timeScale = 0;
-        } else {
-            DisableAllPanels();
-            PausePanel.SetActive(false);
-            Time.timeScale = 1;
+        if (GameStat == "InPause"){
+            GameStat = "InGame";
+        } else if (GameStat == "InGame"){
+            GameStat = "InPause";
         }
     }
+
     //Cierra los paneles en general
     public void ClosePanel(){
-        if (GameStat == "Menu"){
-            DisableAllPanels();
-            MenuPanel.SetActive(true);
+        if (GameStat == "InCredits"){
+            GameStat = "InMenu";
         } else {
         DisableAllPanels();
         }
     }
     //Abre el panel de creditos en el menu
     public void Creditos(){
-        DisableAllPanels();
-        CreditsPanel.SetActive(true);
+        GameStat = "InCredits";
     }
     //Pegunta si quieres salir del minijuego para ir al menu
     public void SureExit(){
@@ -123,9 +156,9 @@ public class GameManager : MonoBehaviour
     public void SceneGODS(){
         DisableAllPanels();
         SceneManager.LoadScene("GODS");
+        GameStat = "InLoadingPanel";
         PanelPantallaCarga.SetActive(true);
         ContentGODSCarga.SetActive(true);
-        Time.timeScale = 0;
     }
     //Se ejecuta cuando el nivel ha sido completado
     public void LvlCompletedGODS(){
@@ -153,9 +186,9 @@ public class GameManager : MonoBehaviour
     public void SceneDEATH(){
         DisableAllPanels();
         SceneManager.LoadScene("DEATH");
+        GameStat = "InLoadingPanel";
         PanelPantallaCarga.SetActive(true);
         ContentDEATHCarga.SetActive(true);
-        Time.timeScale = 0;
     }
     //Se ejecuta cuando el nivel ha sido completado
     public void LvlCompletedDEATH(){
@@ -183,14 +216,14 @@ public class GameManager : MonoBehaviour
     public void SceneCACAO(){
         DisableAllPanels();
         SceneManager.LoadScene("CACAO");
+        GameStat = "InLoadingPanel";
         PanelPantallaCarga.SetActive(true);
         ContentCACAOCarga.SetActive(true);
-        Time.timeScale = 0;
     }
     //Desactiva la pantalla de carga e inicia el nivel
     public void StartMinigame(){
         DisableAllPanels();
-        Time.timeScale = 1;
+        GameStat = "InGame";
     }
     //Se ejecuta cuando el nivel ha sido completado
     public void LvlCompletedCACAO(){
@@ -203,7 +236,7 @@ public class GameManager : MonoBehaviour
     }
     //Después de completar el nivel te envía de regreso a la plaza
     public void ReturnToPlaza(){
-        GameStat = "OnPLAZA";
+        SceneLoaded = "PLAZA";
         SceneManager.LoadScene("PLAZA");
     }
     //Elimina los datos de juego
