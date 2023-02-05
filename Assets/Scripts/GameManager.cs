@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     //                          Paneles Generales
     [SerializeField] GameObject MenuPanel, CreditsPanel, PausePanel, MinigamePanel, LvlCompletePanel, PanelPantallaCarga, SureExitPanel;
     //                        Contenido Paneles: Contenido Panel Minigame | contenido LvlCompletado | Contenido Pantalla de Carga
-    [SerializeField] GameObject ContentGODS, WinGODS, ContentGODSCarga,  ContentDEATH, WinDEATH, ContentDEATHCarga, ContentCACAO, WinCACAO, ContentCACAOCarga;
+    [SerializeField] GameObject ContentGODS, ContentGODSCarga,  ContentDEATH, ContentDEATHCarga, ContentCACAO, ContentCACAOCarga, checkmark;
     [SerializeField] string GameStat, SceneLoaded;
 
     //Estados de Juego
@@ -23,9 +23,6 @@ public class GameManager : MonoBehaviour
         ContentGODS.SetActive(false);
         ContentDEATH.SetActive(false);
         ContentCACAO.SetActive(false);
-        WinGODS.SetActive(false);
-        WinDEATH.SetActive(false);
-        WinCACAO.SetActive(false);
         LvlCompletePanel.SetActive(false);
         PanelPantallaCarga.SetActive(false);
         ContentGODSCarga.SetActive(false);
@@ -34,6 +31,7 @@ public class GameManager : MonoBehaviour
         SureExitPanel.SetActive(false);
         CreditsPanel.SetActive(false);
         MenuPanel.SetActive(false);
+        checkmark.SetActive(false);
     }
 
 
@@ -151,6 +149,9 @@ public class GameManager : MonoBehaviour
         DisableAllPanels();
         MinigamePanel.SetActive(true);
         ContentGODS.SetActive(true);
+        if (CompleteGODS == true){
+            checkmark.SetActive(true);
+        }
     }
     //Te envía a la escena
     public void SceneGODS(){
@@ -165,7 +166,6 @@ public class GameManager : MonoBehaviour
         DisableAllPanels();
         Time.timeScale = 0;
         LvlCompletePanel.SetActive(true);
-        WinGODS.SetActive(true);
         CompleteGODS = true;
         print("Haz completado el nivel 'GODS'");
     }
@@ -181,6 +181,9 @@ public class GameManager : MonoBehaviour
         DisableAllPanels();
         MinigamePanel.SetActive(true);
         ContentDEATH.SetActive(true);
+        if (CompleteDEATH == true){
+            checkmark.SetActive(true);
+        }
     }
     //Te envía a la escena
     public void SceneDEATH(){
@@ -195,7 +198,6 @@ public class GameManager : MonoBehaviour
         DisableAllPanels();
         Time.timeScale = 0;
         LvlCompletePanel.SetActive(true);
-        WinDEATH.SetActive(true);
         CompleteDEATH = true;
         print("Haz completado el nivel 'DEATH'");
     }
@@ -211,6 +213,9 @@ public class GameManager : MonoBehaviour
         DisableAllPanels();
         MinigamePanel.SetActive(true);
         ContentCACAO.SetActive(true);
+        if (CompleteCACAO == true){
+            checkmark.SetActive(true);
+        }
     }
     //Te envía a la escena
     public void SceneCACAO(){
@@ -231,7 +236,6 @@ public class GameManager : MonoBehaviour
         DisableAllPanels();
         Time.timeScale = 0;
         LvlCompletePanel.SetActive(true);
-        WinCACAO.SetActive(true);
         print("Haz completado el nivel 'CACAO'");
     }
     //Después de completar el nivel te envía de regreso a la plaza

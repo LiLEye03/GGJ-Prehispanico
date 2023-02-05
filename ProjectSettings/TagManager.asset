@@ -10,9 +10,14 @@ TagManager:
   - FINAL
   - SueloCa
   - PJ
+<<<<<<< Updated upstream
   - AltarPool
   - FlorPool
   - DamageCao
+=======
+  - colliderAltar
+  - Flor
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &16569666 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4190064934687225011, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
-  m_PrefabInstance: {fileID: 128843952}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &100327055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4190064934863718397, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
@@ -218,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190064934807457090, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4190064934807457092, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
       propertyPath: m_Color.a
@@ -294,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190064935240147398, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4190064935240147416, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
       propertyPath: m_Color.a
@@ -438,7 +433,7 @@ PrefabInstance:
       objectReference: {fileID: 2018147713}
     - target: {fileID: 4190064935583951100, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Menu
+      value: ReturnToPlaza
       objectReference: {fileID: 0}
     - target: {fileID: 4190064935869961039, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -672,11 +667,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &876940606 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4190064935051843825, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
-  m_PrefabInstance: {fileID: 128843952}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &946642364
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,11 +832,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1472803825 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4190064935171523012, guid: e5418927621b1124ba39a91ac1dde6ee, type: 3}
-  m_PrefabInstance: {fileID: 128843952}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1873767176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,15 +990,15 @@ PrefabInstance:
     - target: {fileID: 7871280019024566629, guid: 4608f6e6afe2b214bae61ba057467801, type: 3}
       propertyPath: WinGODS
       value: 
-      objectReference: {fileID: 16569666}
+      objectReference: {fileID: 0}
     - target: {fileID: 7871280019024566629, guid: 4608f6e6afe2b214bae61ba057467801, type: 3}
       propertyPath: WinCACAO
       value: 
-      objectReference: {fileID: 876940606}
+      objectReference: {fileID: 0}
     - target: {fileID: 7871280019024566629, guid: 4608f6e6afe2b214bae61ba057467801, type: 3}
       propertyPath: WinDEATH
       value: 
-      objectReference: {fileID: 1472803825}
+      objectReference: {fileID: 0}
     - target: {fileID: 7871280019024566629, guid: 4608f6e6afe2b214bae61ba057467801, type: 3}
       propertyPath: CargaGODS
       value: 

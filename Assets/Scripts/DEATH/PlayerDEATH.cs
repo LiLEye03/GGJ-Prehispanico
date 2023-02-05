@@ -1,3 +1,5 @@
+using System.Transactions;
+using System.Diagnostics;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +11,7 @@ public class PlayerDEATH : MonoBehaviour
     [SerializeField] LevelManagerDEATH ObjectPooler;
     //Player
     float FlorOffset = 2f;
-    float PlayerSpeed = 5;
+    float PlayerSpeed = 20;
     Rigidbody2D rb;
 
     void Start()
@@ -27,6 +29,12 @@ public class PlayerDEATH : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)){
             GameObject flor = ObjectPooler.RequestFlor();
             flor.transform.position = transform.position + Vector3.up * FlorOffset;
+        }
+
+        if(transform.position.x < -6.3f){
+            transform.position = new Vector3(-6.3f, transform.position.y, transform.position.z);
+        } else if (transform.position.x > 6.1f){
+            transform.position = new Vector3(6.1f, transform.position.y, transform.position.z);
         }
     }
 }

@@ -6,16 +6,9 @@ using TMPro;
 public class LanguageManager : MonoBehaviour
 {
     public static string Language;
-                                    //Lenguaje Botones
-    [SerializeField] TextMeshProUGUI StartButton, CreditsButton;
-    [SerializeField] bool Español;
-                                    //Lenguaje Contenido Paneles Español
-    [SerializeField] TextMeshProUGUI TitleES,CreditsES, ContentGODSEs, ChargingGODSEs, WinGODSEs, ContentDEATHEs, ChargingDEATHEs, WinDEATHEs, ContentCACAOEs, ChargingCACAOEs, WinCACAOes, WinGameES;
-    [SerializeField] bool Inglés;
-                                    //Lenguaje Contenido Paneles Inglés
-    [SerializeField] TextMeshProUGUI TitleEN,CreditsEN, ContentGODSEn, ChargingGODSEn, WinGODSEn, ContentDEATHEn, ChargingDEATHEn, WinDEATHEn, ContentCACAOEn, ChargingCACAOEn, WinCACAOEn, WinGameEN;
-                                    //Lenguaje Contenido Extras
-
+    [Header ("Menu panel")]
+    [SerializeField] string LanguageMenuPanel;
+    [SerializeField] TextMeshProUGUI StartBtnEN, CreditsBtnEN, LanguageBtnEN, StartBtnES, CredtisBtnES, LanguageBtnES;
     //DontDestroyOnLoad
     public static LanguageManager Instance;
 

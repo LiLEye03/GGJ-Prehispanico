@@ -20,13 +20,11 @@ public class FlorDEATH : MonoBehaviour
 
     void OnTriggerEnter2D()
     {
-        print("AAAAAAAAAAAAAAAA");
         gameObject.SetActive(false);
     }
 
     void OnCollisionEnter2D()
     {
-        print("AAAAAAAAAAAAAAAA");
         gameObject.SetActive(false);
     }
 }
