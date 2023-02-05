@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Menu();
+        MenuPanel.SetActive(true);
     }
     //debug  patas  Atte: Randy
     void Update()
@@ -158,6 +159,7 @@ public class GameManager : MonoBehaviour
     public void SceneGODS(){
         DisableAllPanels();
         SceneManager.LoadScene("GODS");
+        GameOverPanel.SetActive(false);
         GameStat = "InLoadingPanel";
         PanelPantallaCarga.SetActive(true);
         ContentGODSCarga.SetActive(true);
@@ -260,14 +262,14 @@ public class GameManager : MonoBehaviour
         ClearLvlCACAO();
     }
 
-    //Sistema de Lenguage
+    // //Sistema de Lenguage
 
-    public void ChangeLanguage(){
-        if (LanguageManager.Language == "Spanish - ES"){
-            LanguageManager.Language = "English - EN";
-        } else if (LanguageManager.Language == "English - EN"){
-            LanguageManager.Language = "Spanish - ES";
-        }
-    }
+    // public void ChangeLanguage(){
+    //     if (LanguageManager.Language == "Spanish - ES"){
+    //         LanguageManager.Language = "English - EN";
+    //     } else if (LanguageManager.Language == "English - EN"){
+    //         LanguageManager.Language = "Spanish - ES";
+    //     }
+    // }
 
 }
