@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
             case "InGame":
             PausePanel.SetActive(false);
             SureExitPanel.SetActive(false);
+            GameOverPanel.SetActive(false);
             Time.timeScale = 1;
             break;
 
