@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TimerGods : MonoBehaviour
 {
+    LevelManagerGODS Manager;
     [SerializeField]
     float timer = 0;
 
@@ -25,7 +26,7 @@ public class TimerGods : MonoBehaviour
         if(timer <= 0)
         {
             timer = 0;
-            GameManager.Instance.WinGods();
+            GameManager.Instance.LvlCompletedGODS();
         }
     }
 }
