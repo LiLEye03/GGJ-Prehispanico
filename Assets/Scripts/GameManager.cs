@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     //  Booleanos:     Revisa si los Minijuegos fueron completados || Revisa si el Juego fue Iniciado
     public static bool CompleteGODS, CompleteDEATH, CompleteCACAO, GameStarted;
     //                          Paneles Generales
-    [SerializeField] GameObject MenuPanel, CreditsPanel, PausePanel, MinigamePanel, LvlCompletePanel, PanelPantallaCarga, SureExitPanel, GameOverPanel,WinPanelGods, GameCompletedPanel;
+    [SerializeField] GameObject MenuPanel, CreditsPanel, PausePanel, MinigamePanel, LvlCompletePanel, PanelPantallaCarga, SureExitPanel, GameOverPanel, GameCompletedPanel;
     //                        Contenido Paneles: Contenido Panel Minigame | contenido LvlCompletado | Contenido Pantalla de Carga
     [SerializeField] GameObject ContentGODS, ContentGODSCarga,  ContentDEATH, ContentDEATHCarga, ContentCACAO, ContentCACAOCarga, checkmark;
     [SerializeField] string GameStat, SceneLoaded;
@@ -184,12 +184,6 @@ public class GameManager : MonoBehaviour
         GameOverPanel.SetActive(true);
     }
 
-    public void WinGods()
-    {
-        DisableAllPanels();
-        WinPanelGods.SetActive(true);
-    }
-
     //DEATH
     //Muestra en el panel la sinopsis del minijuego
     public void DEATH(){
@@ -248,10 +242,8 @@ public class GameManager : MonoBehaviour
     //Se ejecuta cuando el nivel ha sido completado
     public void LvlCompletedCACAO(){
         CompleteCACAO = true;
-        DisableAllPanels();
-        Time.timeScale = 0;
         LvlCompletePanel.SetActive(true);
-        print("Haz completado el nivel 'CACAO'");
+        Time.timeScale = 0;
     }
     //Después de completar el nivel te envía de regreso a la plaza
     public void ReturnToPlaza(){

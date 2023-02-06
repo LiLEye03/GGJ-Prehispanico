@@ -16,6 +16,10 @@ public class LevelManagerCACAO : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (vidas<=0){
+            Time.timeScale = 0;
+            GameManager.Instance.LvlCompletedCACAO();
+        }
         
     }
 
@@ -23,9 +27,6 @@ public class LevelManagerCACAO : MonoBehaviour
     {
         vidas--;
         lives.text = vidas.ToString();
-        if (vidas<=0){
-            GameManager.Instance.LvlCompletedCACAO();
-        }
     }
 
     public void LvlCompleteCACAO(){

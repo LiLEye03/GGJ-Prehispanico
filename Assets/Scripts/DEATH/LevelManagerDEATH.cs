@@ -6,9 +6,10 @@ using TMPro;
 
 public class LevelManagerDEATH : MonoBehaviour
 {
-    [SerializeField] float timer;
+    [SerializeField] int timer;
+    float decrementSpeed;
     public static int vidas, score;
-    [SerializeField] TextMeshProUGUI ScoreText, VidasText;
+    [SerializeField] TextMeshProUGUI ScoreText, VidasText, TimerText;
 
     //Objetos Object Pooler
     //Flor
@@ -19,8 +20,10 @@ public class LevelManagerDEATH : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timer = 30;
         vidas = 3;
         score = 0;
+        InvokeRepeating("DecrementSeconds", 1f, 1f);
 
     //Object Pooler
     AddFloresToPool(FlorPoolSize);
@@ -28,12 +31,13 @@ public class LevelManagerDEATH : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (vidas <= 0){
-            LvlCompleteDEATH();
+        if (vidas <= 0 || timer <= 0){
+            GameManager.Instance.LvlCompletedDEATH();
         }
 
         ScoreText.text = "x  " + score;
         VidasText.text = "x  " + vidas;
+        TimerText.text = "00:" + timer;
     }
 
     private void AddFloresToPool(int amount){
@@ -57,6 +61,15 @@ public class LevelManagerDEATH : MonoBehaviour
 
     public void LvlCompleteDEATH(){
         GameManager.Instance.LvlCompletedDEATH();
+    }
+
+        void DecrementSeconds()
+    {
+        timer --;
+        if (timer <= 0)
+        {
+            CancelInvoke("DecrementSeconds");
+        }
     }
 
 
